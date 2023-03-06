@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitnes Calculator Tool</title>
+    <link rel="stylesheet" href="./public/assets/css/style.css" />
+    <link rel="stylesheet" href="./public/assets/css/reset.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="sidebar">
+        <div class="sidebar-logo">
+          <img
+            src="./public/assets/images/Business-logo-97w.webp"
+            alt=""
+            width="40"
+          />
+        </div>
+        <div class="sidebar-nav">
+          <ul class="nav-links">
+            <li class="nav-item"><a href="#">Macros Calculator</a></li>
+            <li class="nav-item"><a href="#">BMI Calculator</a></li>
+            <li class="nav-item"><a>Body Fat Calculator</a></li>
+            <li class="nav-item"><a>TDEE Calculator</a></li>
+            <li class="nav-item">Ideal Weight Calculator</li>
+          </ul>
+        </div>
+        <div class="sidebar-image">
+          <img
+            src="./public/assets/images/nature_benefits_re_kk70.svg"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="main">
+        <div class="fitness-calculator">
+          <div class="fitness-heading">
+            <h1>Calculate your BMI,TDEE and more</h1>
+          </div>
+          <form class="fitness-form" action="">
+            <div class="form-body">
+              <div class="height">
+                <p>System</p>
+                <label for="imperial">Imperial</label>
+                <input type="radio" name="system" />
+                <label for="metric">Metric</label>
+                <input type="radio" name="system" />
+              </div>
+              <div class="weight">
+                <p>Weight:</p>
+                <input type="number" placeholder="hello" />
+              </div>
+              <div class="age">
+                <p>Weight:</p>
+                <input type="number" placeholder="hello" />
+              </div>
+              <div class="sex">
+                <p>Sex</p>
+                <input type="text" />
+              </div>
+            </div>
+
+            <button type="submit">Calculate</button>
+          </form>
+        </div>
+        <div class="fitness-results">
+          <div>
+            <h1>Results</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
