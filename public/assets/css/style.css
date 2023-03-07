@@ -2,7 +2,7 @@
 
 body {
   font-family: var(--font-primary);
-  background-color: var(--primary-grey-200);
+  /* background-color: var(--primary-grey-200); */
 }
 
 :root {
@@ -45,18 +45,6 @@ h1 {
   font-size: 3.5rem;
   font-size: clamp(3.5rem, 3.4rem + 0.5vw, 4rem);
 }
-h2 {
-  font-size: 2.5rem;
-  font-size: clamp(2.5rem, 2.375rem + 0.625vw, 3.125rem);
-}
-p {
-  font-size: 1.125rem;
-  font-size: clamp(1.125rem, 1.05rem + 0.375vw, 1.5rem);
-}
-
-h6 {
-  font-family: "Montserrat";
-}
 
 img {
   max-width: 100%;
@@ -90,33 +78,42 @@ img {
 }
 .nav-links .nav-item {
   padding: 20px 40px;
-
   margin: 15px 0px;
 }
 .nav-links .nav-item.active {
   background-color: var(--primary-2);
   border-left: 5px solid var(--primary-4);
 }
+.nav-links .nav-item a {
+  text-decoration: none;
+  color: black;
+}
 .sidebar-image {
   padding: 0px 40px;
 }
-.fitness-calculator {
-  flex-basis: auto;
+.calculator {
+  flex: 2;
+  background-color: #fef6e4;
 }
-.fitness-results {
-  flex-basis: auto;
-  padding: 20px 40px;
+.calculator .calc-body {
+  padding: 30px 40px;
 }
-.fitness-heading {
-  text-align: center;
-}
-.fitness-form {
-  border-radius: 8px;
 
-  background-color: #ffffff;
+.calculator .calc-body .calc-subheading {
+  margin-top: 40px;
 }
-.form-body {
+
+.results {
+  flex: 1;
   padding: 20px 40px;
+  background-color: #f1ead9;
+  position: relative;
+  z-index: -2;
+}
+
+.fitness-form {
+  margin-top: 40px;
+  border-radius: 8px;
 }
 
 input {
@@ -131,4 +128,48 @@ button {
   color: white;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+  width: 100%;
+}
+
+/* circular bar*/
+.outer_circle {
+  position: relative;
+  margin: 135px auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #f1ead9;
+}
+
+.inner_circle {
+  background-image: linear-gradient(
+    to top,
+    var(--primary-3) 0%,
+    var(--primary-1) 100%
+  );
+  content: "";
+  position: absolute;
+  inset: -14%;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+/* radio buttons*/
+.metric-buttons input[type="radio"],
+.gender-buttons input[type="radio"] {
+  display: none;
+}
+.metric-buttons label,
+.gender-buttons label {
+  display: inline-block;
+  background-color: #d1d1d1;
+  padding: 11px 21px;
+  font-family: var(--font-primary);
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.metric-buttons input[type="radio"]:checked + label,
+.gender-buttons input[type="radio"]:checked + label {
+  background-color: var(--primary-2);
 }
