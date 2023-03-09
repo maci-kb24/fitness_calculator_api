@@ -40,29 +40,37 @@
         <div class="calculator">
           <div class="calc-body">
             <div class="calc-heading">
-              <p class="note">This is a note!</p>
               <h3>Macros Calculator</h3>
               <hr />
             </div>
             <div class="calc-subheading">
               <h2>Calculate Your Macros</h2>
-              <p>
+              <p style="color: #a7a7a7">
                 Craft your ideal macronutrient ratio now using our macros
                 calculator
               </p>
             </div>
             <form class="fitness-form" id="form" action="">
               <div class="form-body">
-                <div class="height">
-                  <p>System</p>
-                  <div class="metric-buttons">
+                <div class="system">
+                  <p style="color: #a7a7a7">System</p>
+                  <div class="metric-buttons" style="display: inline-flex">
                     <input
                       type="radio"
                       id="imperial"
                       name="system"
                       value="false"
                     />
-                    <label for="imperial">Imperial</label>
+                    <label
+                      for="imperial"
+                      style="
+                        border-top-left-radius: 8px;
+                        border-bottom-left-radius: 8px;
+                        border-bottom-right-radius: 0px;
+                        border-top-right-radius: 0px;
+                      "
+                      >Imperial</label
+                    >
                     <input
                       type="radio"
                       id="metric"
@@ -70,8 +78,12 @@
                       value="true"
                       checked
                     />
-                    <label for="metric">Metric</label>
+                    <label for="metric" style="transform: translateX(-5px)"
+                      >Metric</label
+                    >
                   </div>
+                </div>
+                <div class="gender">
                   <p>I'm a</p>
                   <div class="gender-buttons">
                     <input
@@ -81,33 +93,125 @@
                       value="true"
                       checked
                     />
-                    <label for="made">Male</label>
+                    <label
+                      for="male"
+                      style="padding: 13px 71px; position: relative; z-index: 1"
+                      >Male</label
+                    >
                     <input
                       type="radio"
                       id="female"
                       name="gender"
                       value="false"
                     />
-                    <label for="female">Female</label>
+                    <label
+                      for="female"
+                      style="
+                        transform: translateX(-10px);
+                        border-top-left-radius: 0px;
+                        border-bottom-left-radius: 0px;
+                        border-bottom-right-radius: 8px;
+                        border-top-right-radius: 8px;
+                      "
+                      >Female</label
+                    >
                   </div>
                 </div>
-                <div class="weight">
+                <div class="weight-goal">
                   <p>What's your main weight goal?</p>
-                  <div class="weight-buttons"></div>
-                  <input type="radio" id="lose" name="weight" />
-                  <label for=""></label>
+                  <div class="weight-buttons">
+                    <input type="radio" id="lose" name="weight" value="false" />
+                    <label for="lose">Lose</label>
+                    <input
+                      type="radio"
+                      id="maintain"
+                      name="weight"
+                      value="true"
+                      checked
+                    />
+                    <label for="maintain">Maintain</label>
+                    <input type="radio" id="gain" name="weight" value="false" />
+                    <label for="gain">Gain</label>
+                  </div>
                 </div>
                 <div class="age">
-                  <p>Weight:</p>
-                  <input type="number" />
+                  <div id="age-display">I am 27 years old</div>
+                  <input
+                    type="range"
+                    id="age-range"
+                    name="age-range"
+                    min="0"
+                    max="100"
+                    value="27"
+                  />
                 </div>
-                <div class="sex">
-                  <p>Sex</p>
-                  <input type="text" />
+                <div class="height">
+                  <div id="height-display">My height: 171 cm</div>
+                  <input
+                    type="range"
+                    id="height-range"
+                    name="height-range"
+                    min="0"
+                    max="300"
+                    value="171"
+                  />
+                </div>
+                <div class="weight">
+                  <div id="weight-display">Current weight: 75 kg</div>
+                  <input
+                    type="range"
+                    id="weight-range"
+                    name="weight-range"
+                    min="0"
+                    max="300"
+                    value="75"
+                  />
+                </div>
+                <div class="activity">
+                  <p>Activity level</p>
+                  <div class="activity-buttons" style="display: inline-flex">
+                    <input
+                      type="radio"
+                      id="sedentary"
+                      name="activity"
+                      value="false"
+                    />
+                    <label for="sedentary" style="text-align: center"
+                      >Sedentary<br /><span
+                        style="color: #a7a7a7; font-size: 14px"
+                        >(no exercise)</span
+                      ></label
+                    >
+                    <input
+                      type="radio"
+                      id="moderate"
+                      name="activity"
+                      value="false"
+                    />
+                    <label for="moderate" style="text-align: center"
+                      >Moderate<br /><span
+                        style="color: #a7a7a7; font-size: 14px"
+                        >(3x-4x per week)</span
+                      ></label
+                    >
+                    <input
+                      type="radio"
+                      id="active"
+                      name="activity"
+                      value="true"
+                      checked
+                    />
+                    <label for="active" style="text-align: center"
+                      >Active<br /><span style="color: #a7a7a7; font-size: 14px"
+                        >(5x+ per week)</span
+                      ></label
+                    >
+                  </div>
                 </div>
               </div>
-              <input type="text" />
-              <button type="submit" onclick="calculateCal()">Calculate</button>
+              <div class="form-button">
+                <button type="submit">Calculate</button>
+              </div>
             </form>
           </div>
         </div>
@@ -122,9 +226,9 @@
             </p>
           </div>
           <div class="outer_circle">
-            <p style="position: absolute; left: 31%; top: 11%; font-size: 14px">
+            <p style="position: absolute; left: 35%; top: 18%; font-size: 14px">
               BMR<br />
-              <span style="font-size: 20px; font-weight: 700">1,927</span><br />
+              <span style="font-size: 20px; font-weight: 700">0</span><br />
               <span>kcal</span>
             </p>
             <div class="inner_circle"></div>
@@ -147,5 +251,6 @@
       </div>
     </div>
     <script src="./public/assets/js/index.js"></script>
+    <script src="./public/assets/js/fitness-api.js"></script>
   </body>
 </html>
