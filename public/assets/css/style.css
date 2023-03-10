@@ -2,7 +2,7 @@
 
 body {
   font-family: var(--font-primary);
-  color: var(--text-dark-100);
+  color: var(--text-dark);
 }
 
 :root {
@@ -116,11 +116,26 @@ img {
 .calculator .calc-body .calc-subheading {
   margin-top: 40px;
 }
+.calculator .calc-body .calc-subheading p {
+  color: #a7a7a7;
+}
 
 /*Form*/
 .fitness-form {
   margin-top: 40px;
   border-radius: 8px;
+}
+.fitness-form .form-body .system p {
+  color: #a7a7a7;
+}
+.fitness-form .form-body .gender p {
+  color: #a7a7a7;
+}
+.fitness-form .form-body .weight-goal p {
+  color: #a7a7a7;
+}
+.fitness-form .form-body .activity p {
+  color: #a7a7a7;
 }
 .fitness-form .form-button {
   margin-top: 30px;
@@ -140,7 +155,7 @@ button {
   width: 100%;
 }
 .gender,
-.weight-goal,
+.goal,
 .age,
 .height,
 .weight,
@@ -150,20 +165,20 @@ button {
 /* radio buttons*/
 .metric-buttons,
 .gender-buttons,
-.weight-buttons,
+.goal-buttons,
 .activity-buttons {
   margin-top: 10px;
   margin-left: 5px;
 }
 .metric-buttons input[type="radio"],
 .gender-buttons input[type="radio"],
-.weight-buttons input[type="radio"],
+.goal-buttons input[type="radio"],
 .activity-buttons input[type="radio"] {
   display: none;
 }
 .metric-buttons label,
 .gender-buttons label,
-.weight-buttons label {
+.goal-buttons label {
   display: inline-block;
   background-color: #d1d1d1;
   padding: 13px 60px;
@@ -183,13 +198,13 @@ button {
 }
 .metric-buttons input[type="radio"]:checked + label,
 .gender-buttons input[type="radio"]:checked + label,
-.weight-buttons input[type="radio"]:checked + label,
+.goal-buttons input[type="radio"]:checked + label,
 .activity-buttons input[type="radio"]:checked + label {
   background-color: var(--primary-2);
   font-weight: var(--fw-medium);
 }
 
-.weight-buttons input[type="radio"]:checked + label {
+.goal-buttons input[type="radio"]:checked + label {
   background-color: var(--primary-2);
   font-weight: var(--fw-medium);
 }
@@ -205,6 +220,13 @@ button {
 .weight #weight-range {
   width: 100%;
 }
+/* submit button*/
+.form-button button[type="submit"] {
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: var(--fw-medium);
+}
+
 /*end form*/
 
 /*results*/
@@ -215,11 +237,36 @@ button {
   position: relative;
   z-index: -2;
 }
-
+.results .results-body .outer_circle .bmr {
+  position: absolute;
+  left: 35%;
+  top: 18%;
+  font-size: 14px;
+  color: #a7a7a7;
+}
+.results .results-body .outer_circle .number-kcal {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+.results .results-body .daily-stats p {
+  color: #a7a7a7;
+}
+.results .results-body .results-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.results .results-body .results-stats .results-stat {
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #a7a7a7;
+  border-radius: 8px;
+}
 /* circular bar*/
 .outer_circle {
   position: relative;
-  margin: 100px auto;
+  margin: 50px auto;
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -237,4 +284,8 @@ button {
   inset: -14%;
   z-index: -1;
   border-radius: inherit;
+}
+
+.formulas .formulas-heading h2 {
+  margin-top: 30px;
 }

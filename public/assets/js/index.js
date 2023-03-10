@@ -13,11 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-//system
-const systemImperial = document.getElementById("imperial").value;
-const systemMetric = document.getElementById("metric").value;
-
-// age range display
+//age range display
 const ageRange = document.getElementById("age-range");
 const ageDisplay = document.getElementById("age-display");
 
@@ -45,23 +41,58 @@ weightRange.addEventListener("input", function () {
 });
 
 //form submit
-
 let formCalc = document.getElementById("form");
 
 formCalc.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  ageValue = ageRange.value;
-  heightValue = heightRange.value;
-  weightValue = weightRange.value;
+  // const bodyFat = document.querySelector(".body-fat");
+  // const system = document.querySelector('input[name="system"]:checked').value;
+  const height = document.getElementById("height-range").value;
+  heightDisplay.textContent = `Please Select Your Height`;
 
-  if (systemImperial === false) {
-    systemImperial;
-  } else {
-    systemMetric;
-  }
+  const weight = document.getElementById("weight-range").value;
+  weightDisplay.textContent = `Please Select Your Weight`;
+  const age = document.getElementById("age-range").value;
+  const gender = document.querySelector('input[name="gender"]:checked').value;
+  const exercise = document.querySelector(
+    'input[name="exercise"]:checked'
+  ).value;
+  // const goal = document.querySelector('input[name="goal"]:checked').value;
+  ageDisplay.textContent = `Please Select Your Age`;
 
-  console.log(systemImperial, systemMetric);
+  // console.log(system, gender, goal, age, height, weight, activity);
+
+  const encodedParams = new URLSearchParams();
+  // encodedParams.append("system", system);
+  encodedParams.append("height", height);
+  encodedParams.append("weight", weight);
+  encodedParams.append("age", age);
+  encodedParams.append("gender", gender);
+  encodedParams.append("exercise", exercise);
+  // encodedParams.append("goal", goal);
+  // encodedParams.append("neck", "41");
+  // encodedParams.append("hip", "100");
+  // encodedParams.append("waist", "88");
+  // encodedParams.append("deficit", "500");
+  // encodedParams.append("goalWeight", weightGoal);
+
+  const options = {
+    method: "POST",
+    headers: {
+      "content-type": "application/x-www-form-urlencoded",
+      "X-RapidAPI-Key": "96eeee70d8msh0eacc52ca5d036ap1265aejsnbec8937746ef",
+      "X-RapidAPI-Host": "fitness-api.p.rapidapi.com",
+    },
+    body: encodedParams,
+  };
+
+  fetch("https://fitness-api.p.rapidapi.com/fitness", options)
+    .then((response) => response.json())
+    .then((data) =>
+      console.log("body metabolic rate:", data.bodyFatPercentage.bmi.conclusion)
+    )
+    .catch((err) => console.error(err));
 
   formCalc.reset();
 });
