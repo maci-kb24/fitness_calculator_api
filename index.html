@@ -25,7 +25,6 @@
             </li>
             <li class="nav-item"><a href="#">Body Fat Calculator</a></li>
             <li class="nav-item"><a href="#">BMI Calculator</a></li>
-            <li class="nav-item"><a href="#">Ideal Weight Calculator</a></li>
             <li class="nav-item"><a href="#">TDEE Calculator</a></li>
           </ul>
         </div>
@@ -179,7 +178,10 @@
                 </div>
                 <div class="activity">
                   <p>Activity level</p>
-                  <div class="activity-buttons" style="display: inline-flex">
+                  <div
+                    class="activity-buttons"
+                    style="display: inline-flex; flex-wrap: wrap"
+                  >
                     <input
                       type="radio"
                       id="light"
@@ -236,12 +238,20 @@
           </div>
           <div class="results-body">
             <div class="outer_circle">
-              <p class="bmr">
-                BMR<br />
-                <!-- <span class="number-kcal"></span><br />
-                <span class="kcal"></span> -->
-              </p>
-              <div class="inner_circle"></div>
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: center;
+                  height: 100%;
+                "
+              >
+                <p class="bmr">BMR</p>
+                <p class="kcal-calories" style="margin: 10px 0px">2000</p>
+                <p class="kcal-unit">kcal</p>
+                <div class="inner_circle"></div>
+              </div>
             </div>
             <div class="daily-stats">
               <p>Daliy Stats</p>

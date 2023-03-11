@@ -244,7 +244,7 @@ button {
   font-size: 14px;
   color: #a7a7a7;
 }
-.results .results-body .outer_circle .number-kcal {
+.results .results-body .outer_circle .kcal-calories {
   font-size: 20px;
   font-weight: 700;
   color: var(--text-dark);
@@ -283,9 +283,16 @@ button {
   position: absolute;
   inset: -14%;
   z-index: -1;
-  border-radius: inherit;
+  border-radius: 50%;
 }
 
 .formulas .formulas-heading h2 {
   margin-top: 30px;
+}
+
+@media (max-width: 60em) {
+  #app,
+  .main {
+    flex-direction: column;
+  }
 }

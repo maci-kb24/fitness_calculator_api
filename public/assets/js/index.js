@@ -13,6 +13,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+const outerCircle = document.querySelector(".outer_circle");
+const kcalCalories = document.querySelector(".kcal-calories");
+const kcalUnit = document.querySelector(".kcal-unit");
+const bmr = document.querySelector(".bmr");
+const bodyFat = document.querySelector(".body-fat");
+const bmi = document.querySelector(".bmi");
+const tdee = document.querySelector(".tdee");
+
 //age range display
 const ageRange = document.getElementById("age-range");
 const ageDisplay = document.getElementById("age-display");
@@ -46,11 +54,9 @@ let formCalc = document.getElementById("form");
 formCalc.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  // const bodyFat = document.querySelector(".body-fat");
   // const system = document.querySelector('input[name="system"]:checked').value;
   const height = document.getElementById("height-range").value;
   heightDisplay.textContent = `Please Select Your Height`;
-
   const weight = document.getElementById("weight-range").value;
   weightDisplay.textContent = `Please Select Your Weight`;
   const age = document.getElementById("age-range").value;
@@ -61,7 +67,9 @@ formCalc.addEventListener("submit", (e) => {
   // const goal = document.querySelector('input[name="goal"]:checked').value;
   ageDisplay.textContent = `Please Select Your Age`;
 
-  // console.log(system, gender, goal, age, height, weight, activity);
+  bmr.textContent = "BMR";
+
+  // console.log(height, weight, age, gender, exercise);
 
   const encodedParams = new URLSearchParams();
   // encodedParams.append("system", system);
@@ -70,12 +78,6 @@ formCalc.addEventListener("submit", (e) => {
   encodedParams.append("age", age);
   encodedParams.append("gender", gender);
   encodedParams.append("exercise", exercise);
-  // encodedParams.append("goal", goal);
-  // encodedParams.append("neck", "41");
-  // encodedParams.append("hip", "100");
-  // encodedParams.append("waist", "88");
-  // encodedParams.append("deficit", "500");
-  // encodedParams.append("goalWeight", weightGoal);
 
   const options = {
     method: "POST",
@@ -89,10 +91,73 @@ formCalc.addEventListener("submit", (e) => {
 
   fetch("https://fitness-api.p.rapidapi.com/fitness", options)
     .then((response) => response.json())
-    .then((data) =>
-      console.log("body metabolic rate:", data.bodyFatPercentage.bmi.conclusion)
-    )
+    .then((data) => {
+      kcalCalories.textContent = data.basalMetabolicRate.hb.calories.value;
+      kcalUnit.textContent = data.basalMetabolicRate.hb.calories.unit[0];
+
+      // console.log(
+      //   data.basalMetabolicRate.hb.calories.value,
+      //   data.basalMetabolicRate.hb.calories.unit[0]
+      // );
+    })
     .catch((err) => console.error(err));
 
   formCalc.reset();
 });
+
+// .then((data) => {
+//   data.forEach((item) => {
+//     const newElement = document.createElement("p");
+//     newElement.textContent = "BMR";
+//     newElement.classList.add("bmr");
+//     outerCircle.appendChild(newElement);
+//     const newSpan = document.createElement("span");
+//     newSpan.textContent = item.basalMetabolicRate.hb.calories.value;
+//     newElement.appendChild(newSpan);
+//     const newSpanTwo = document.createElement("span");
+//     newSpanTwo.textContent = item.basalMetabolicRate.hb.calories.unit[0];
+//     newElement.appendChild(newSpanTwo);
+//     bodyFat.innerHTML = `
+//     <p>${item.bodyFatPercentage.bmi.unit[0]} ${item.bodyFatPercentage.bmi.value}</p>
+//     <p>${item.bodyFatPercentage.bmi.conclusion}</p>
+//     `;
+//     bmi.innerHTML = `
+//     <p>${item.bodyMassIndex.unit} ${item.bodyMassIndex.value}</p>
+//     <p>${item.bodyMassIndex.conclusion}</p>
+//     `;
+//     tdee.innerHTML = `
+//     <p>${item.totalDailyEnergyExpenditure.bmi.calories.unit[0]} ${item.totalDailyEnergyExpenditure.bmi.calories.value}</p>
+//     `;
+//     // console.log("body metabolic rate:", data.bodyFatPercentage.bmi.conclusion)
+//   });
+// })
+// .catch((err) => console.error(err));
+
+// .then((data) => {
+//   const keys = Object.keys(data);
+//   for (let i = 0; i < keys.length; i++) {
+//     const item = data[keys[i]];
+//     const newElement = document.createElement("p");
+//     newElement.textContent = "BMR";
+//     newElement.classList.add("bmr");
+//     outerCircle.appendChild(newElement);
+//     const newSpan = document.createElement("span");
+//     newSpan.textContent = item.basalMetabolicRate.hb.calories.value;
+//     newElement.appendChild(newSpan);
+//     const newSpanTwo = document.createElement("span");
+//     newSpanTwo.textContent = item.basalMetabolicRate.hb.calories.unit[0];
+//     newElement.appendChild(newSpanTwo);
+//     bodyFat.innerHTML = `
+//       <p>${item.bodyFatPercentage.bmi.unit[0]} ${item.bodyFatPercentage.bmi.value}</p>
+//       <p>${item.bodyFatPercentage.bmi.conclusion}</p>
+//     `;
+//     bmi.innerHTML = `
+//       <p>${item.bodyMassIndex.unit} ${item.bodyMassIndex.value}</p>
+//       <p>${item.bodyMassIndex.conclusion}</p>
+//     `;
+//     tdee.innerHTML = `
+//       <p>${item.totalDailyEnergyExpenditure.bmi.calories.unit[0]} ${item.totalDailyEnergyExpenditure.bmi.calories.value}</p>
+//     `;
+//   }
+// })
+// .catch((err) => console.error(err));
