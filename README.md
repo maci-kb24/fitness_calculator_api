@@ -14,4 +14,4 @@ Calculator that calculates your BMR, Body fat percentage, body mass index and yo
 
 ## Technologies and data usage
 
-The project is built with HTML, CSS, Javascript and use data from the fitness api - https://rapidapi.com/vibecomputing/api/fitness-api/
+The project is built with HTML, CSS, Javascript and use data from the fitness api - [fitness-api] (https://rapidapi.com/vibecomputing/api/fitness-api/)
