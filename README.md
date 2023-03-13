@@ -1,5 +1,7 @@
 # BMR, BMI,Body fat and TDEE Calculator
 
+Live site - [fitness-calculator] (https://fitness-tdee-calculator.netlify.app/)
+
 ## Description
 
 Calculator that calculates your BMR, Body fat percentage, body mass index and your total daily energy expenditure or TDEE.
