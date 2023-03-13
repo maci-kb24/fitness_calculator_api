@@ -238,9 +238,9 @@ button {
   z-index: -2;
 }
 .results .results-body .outer_circle .bmr {
-  position: absolute;
+  /* position: absolute;
   left: 35%;
-  top: 18%;
+  top: 18%; */
   font-size: 14px;
   color: #a7a7a7;
 }
@@ -262,6 +262,13 @@ button {
   background-color: #ffffff;
   color: #a7a7a7;
   border-radius: 8px;
+}
+.results .results-stats .body-fat .bf-bold,
+.results .results-stats .bmi .bmi-bold,
+.results .results-stats .tdee .tdee-bold {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-dark);
 }
 /* circular bar*/
 .outer_circle {

@@ -94,6 +94,15 @@ formCalc.addEventListener("submit", (e) => {
     .then((data) => {
       kcalCalories.textContent = data.basalMetabolicRate.hb.calories.value;
       kcalUnit.textContent = data.basalMetabolicRate.hb.calories.unit[0];
+      bodyFat.innerHTML = `<p class="bf-bold">${data.bodyFatPercentage.bmi.value} ${data.bodyFatPercentage.bmi.unit[0]}</p>
+      <p>Body Fat</p>
+      `;
+      bmi.innerHTML = `<p class="bmi-bold">${data.bodyMassIndex.value}</p>
+      <p>BMI</p>
+      `;
+      tdee.innerHTML = `<p class="tdee-bold">${data.totalDailyEnergyExpenditure.bmi.calories.value} ${data.totalDailyEnergyExpenditure.bmi.calories.unit[0]}</p>
+      <p>TDEE</p> 
+      `;
 
       // console.log(
       //   data.basalMetabolicRate.hb.calories.value,
@@ -104,60 +113,3 @@ formCalc.addEventListener("submit", (e) => {
 
   formCalc.reset();
 });
-
-// .then((data) => {
-//   data.forEach((item) => {
-//     const newElement = document.createElement("p");
-//     newElement.textContent = "BMR";
-//     newElement.classList.add("bmr");
-//     outerCircle.appendChild(newElement);
-//     const newSpan = document.createElement("span");
-//     newSpan.textContent = item.basalMetabolicRate.hb.calories.value;
-//     newElement.appendChild(newSpan);
-//     const newSpanTwo = document.createElement("span");
-//     newSpanTwo.textContent = item.basalMetabolicRate.hb.calories.unit[0];
-//     newElement.appendChild(newSpanTwo);
-//     bodyFat.innerHTML = `
-//     <p>${item.bodyFatPercentage.bmi.unit[0]} ${item.bodyFatPercentage.bmi.value}</p>
-//     <p>${item.bodyFatPercentage.bmi.conclusion}</p>
-//     `;
-//     bmi.innerHTML = `
-//     <p>${item.bodyMassIndex.unit} ${item.bodyMassIndex.value}</p>
-//     <p>${item.bodyMassIndex.conclusion}</p>
-//     `;
-//     tdee.innerHTML = `
-//     <p>${item.totalDailyEnergyExpenditure.bmi.calories.unit[0]} ${item.totalDailyEnergyExpenditure.bmi.calories.value}</p>
-//     `;
-//     // console.log("body metabolic rate:", data.bodyFatPercentage.bmi.conclusion)
-//   });
-// })
-// .catch((err) => console.error(err));
-
-// .then((data) => {
-//   const keys = Object.keys(data);
-//   for (let i = 0; i < keys.length; i++) {
-//     const item = data[keys[i]];
-//     const newElement = document.createElement("p");
-//     newElement.textContent = "BMR";
-//     newElement.classList.add("bmr");
-//     outerCircle.appendChild(newElement);
-//     const newSpan = document.createElement("span");
-//     newSpan.textContent = item.basalMetabolicRate.hb.calories.value;
-//     newElement.appendChild(newSpan);
-//     const newSpanTwo = document.createElement("span");
-//     newSpanTwo.textContent = item.basalMetabolicRate.hb.calories.unit[0];
-//     newElement.appendChild(newSpanTwo);
-//     bodyFat.innerHTML = `
-//       <p>${item.bodyFatPercentage.bmi.unit[0]} ${item.bodyFatPercentage.bmi.value}</p>
-//       <p>${item.bodyFatPercentage.bmi.conclusion}</p>
-//     `;
-//     bmi.innerHTML = `
-//       <p>${item.bodyMassIndex.unit} ${item.bodyMassIndex.value}</p>
-//       <p>${item.bodyMassIndex.conclusion}</p>
-//     `;
-//     tdee.innerHTML = `
-//       <p>${item.totalDailyEnergyExpenditure.bmi.calories.unit[0]} ${item.totalDailyEnergyExpenditure.bmi.calories.value}</p>
-//     `;
-//   }
-// })
-// .catch((err) => console.error(err));
