@@ -1,7 +1,6 @@
 # BMR, BMI,Body fat and TDEE Calculator
 
 Live site - [fitness-calculator] (https://fitness-tdee-calculator.netlify.app/)
-! [Screenshot] (https://raw.githubusercontent.com/maci-kb24/fitness_calculator_api/master/public/assets/images/fitness-calc-app.png)
 
 ## Description
 
