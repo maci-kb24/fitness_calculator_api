@@ -2,7 +2,7 @@
 
 Live site - [fitness-calculator](https://fitness-tdee-calculator.netlify.app/)
 
-(https://i.ibb.co/h76Rjyb/fitness-calc-app.png)
+[Screenshot](https://i.ibb.co/h76Rjyb/fitness-calc-app.png)
 
 ## Description
 
